@@ -16,9 +16,12 @@
         WinJS.Application.onready = function () {
             WinJS.UI.processAll().then(function() {
                 console.log("WinJS init.")
-                
-                var rating = document.getElementById("ratingControlHost").winControl;
+                var rating = document.getElementById("ratingControlHost").winControl
                 rating.averageRating = 3;
+                var host = document.getElementById("ratingControlHost");
+                if (host.winControl) {
+                    host.winControl.dispose();
+                }
             });
         };
 
